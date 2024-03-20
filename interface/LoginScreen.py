@@ -1,9 +1,8 @@
 import tkinter as tk
-import typing
 from tkinter.ttk import *
 from tkinter import messagebox
 from model.user import User
-from HomeScreen import HomeScreen
+import HomeScreen
 
 
 class LoginScreen(tk.Frame):
@@ -82,14 +81,14 @@ class LoginScreen(tk.Frame):
 
         if username and password:
             result = self.login(username, password)
-            print(result)
             if result[0]:
                 messagebox.showinfo("Success", "Login successful!")
                 # Remember to pass the user data and current user to that screen
-                home_screen = HomeScreen(self.root, self, result[1], self.users)
+                home_screen = HomeScreen(self.root, result[1], self.users)
                 # Remember to hide THIS screen.
                 self.pack_forget()
                 home_screen.pack(side="top", fill="both", expand=True)
+                self.destroy()
             else:
                 messagebox.showerror("Failure", "Incorrect username or password supplied!")
         else:
