@@ -85,7 +85,6 @@ class LoginScreen(tk.Frame):
             print(result)
             if result[0]:
                 messagebox.showinfo("Success", "Login successful!")
-                # todo: Write class to model success screen
                 # Remember to pass the user data and current user to that screen
                 home_screen = HomeScreen(self.root, self, result[1], self.users)
                 # Remember to hide THIS screen.
