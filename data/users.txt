@@ -1,0 +1,5 @@
+username%%password
+my_user%%Passw0rd
+sampler%%passypass
+my_user%%passpasspass
+bad_passer%%pass
