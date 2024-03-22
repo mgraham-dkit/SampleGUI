@@ -21,8 +21,11 @@ def load_model(filename: str) -> dict[User]:
     except FileNotFoundError as e:
         raise FileNotFoundError("User data file does not exist")
 
+    return users
+
 
 loaded = False
+users = {}
 while not loaded:
     filename = input("Please enter the user data filename: ")
     try:
@@ -34,6 +37,6 @@ while not loaded:
 
 print("Userbase loaded.")
 root_window = tk.Tk()
-loginScreen = LoginScreen(users, root_window)
+loginScreen = LoginScreen(root_window, users)
 # Trigger the GUI to start listening for user interaction
 root_window.mainloop()

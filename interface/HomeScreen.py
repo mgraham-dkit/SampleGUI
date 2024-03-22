@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter.ttk import *
 
-from LoginScreen import LoginScreen
+import LoginScreen
 from model.user import User
 
 
@@ -33,7 +33,7 @@ class HomeScreen(tk.Frame):
         # Remove this frame from view
         self.pack_forget()
         # Show the login frame again
-        login_screen = LoginScreen(self.root, self.users)
+        login_screen = LoginScreen.LoginScreen(self.root, self.users)
         login_screen.pack(side="top", fill="both", expand=True)
         # Delete the current frame (avoids authentication context/state issues)
         self.destroy()
